@@ -1,0 +1,23 @@
+%p
+  %strong First name:
+  = @friend.first_name
+%p
+  %strong Last name:
+  = @friend.last_name
+%p
+  %strong Email:
+  = @friend.email
+%p
+  %strong Phone:
+  = @friend.phone
+%p
+  %strong Twitter:
+  = @friend.twitter
+%p
+  %strong Department:
+  = @friend.department
+%p
+  %strong Gender:
+  = @friend.gender
+= link_to 'Edit', edit_friend_path(@friend),  class: "btn btn-secondary"
+= link_to 'Back', friends_path,  class: "btn btn-secondary"

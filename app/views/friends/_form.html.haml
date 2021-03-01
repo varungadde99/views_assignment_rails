@@ -1,0 +1,42 @@
+= form_with(model: friend) do |form|
+  - if friend.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(friend.errors.count, "error")
+        prohibited this friend from being saved:
+      %ul
+        - friend.errors.each do |error|
+          %li= error.full_message
+  .field.form-group
+    = form.label :first_name
+    = form.text_field :first_name, class:"form-control"
+  .field.form-group
+    = form.label :last_name
+    = form.text_field :last_name, class:"form-control"
+  .field.form-group
+    = form.label :email
+    = form.text_field :email, class:"form-control"
+  .field.form-group
+    = form.label :phone
+    = form.text_field :phone, class:"form-control"
+  .field.form-group
+    = form.label :twitter
+    = form.text_field :twitter, class:"form-control"
+  %br/
+  .field.form-group
+    = form.check_box :department, { multiple: true}, 'developer', nil
+    = form.label :department, "Developer"
+    = form.check_box :department, {multiple: true }, 'admin', nil
+    = form.label :department, "Admin"
+  %br/
+  .field.form-group
+    = form.radio_button :gender, "Male"
+    = form.label :gender_male, "Male"
+    = form.radio_button :gender, "Female"
+    = form.label :gender_female, "Female"
+    = form.radio_button :gender, "Prefer Not to Say"
+    = form.label :gender_others, "Prefer Not to Say"
+  %br/
+  .actions.form-group
+    = form.submit class:"btn btn-secondary"
+  %br/
